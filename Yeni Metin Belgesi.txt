@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>travelerrasist</title>
+  <title>TravelerAssist</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
@@ -11,7 +11,7 @@
   <!-- Navbar -->
   <nav class="bg-green-900 text-white p-4 shadow">
     <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold">travelerrasist</h1>
+      <h1 class="text-2xl font-bold">TravelerAssist</h1>
       <ul class="flex space-x-6 text-sm md:text-base">
         <li><a href="#about" class="hover:text-green-300">Hakkımızda</a></li>
         <li><a href="#places" class="hover:text-green-300">Keşfet</a></li>
@@ -23,9 +23,9 @@
   <!-- Hero -->
   <header class="bg-cover bg-center h-[80vh] flex items-center justify-center text-white" style="background-image: url('https://source.unsplash.com/1600x900/?travel,historical');">
     <div class="bg-black bg-opacity-50 p-8 rounded-xl text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4">Tarihi Yerleri Yeniden Keşfet</h2>
-      <p class="text-lg md:text-xl mb-6">Dünyanın dört bir yanından kültürel, mimari ve tarihi güzellikleri keşfet.</p>
-      <a href="#places" class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-full font-semibold">Hemen Başla</a>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Dünyayı Sinematik Gözlerle Keşfet</h2>
+      <p class="text-lg md:text-xl mb-6">Tarihi, kültürel ve doğal güzellikleri yeniden yorumluyoruz.</p>
+      <a href="#places" class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-full font-semibold">Keşfetmeye Başla</a>
     </div>
   </header>
 
@@ -33,37 +33,34 @@
   <section id="about" class="max-w-4xl mx-auto px-4 py-16">
     <h3 class="text-2xl font-bold mb-4 text-center text-green-800">Biz Kimiz?</h3>
     <p class="text-center text-gray-700">
-      travelerrasist, tarihi ve kültürel yerleri ziyaret edip bunları sinematik bir dille paylaşan bağımsız bir gezgin topluluğudur. Sosyal medyada sponsorluklar aracılığıyla daha fazla yer görmeyi hedefliyoruz.
+      TravelerAssist, tarihi ve kültürel gezileri belgeleyen, görsel odaklı bir gezginler topluluğudur. Amacımız; estetik videolar, özgün içerikler ve sponsorluk destekleriyle dünyayı daha fazla keşfetmek.
     </p>
   </section>
 
   <!-- Discover Places -->
   <section id="places" class="bg-white py-16 px-4">
     <div class="max-w-6xl mx-auto">
-      <h3 class="text-2xl font-bold text-center text-green-800 mb-8">Popüler Gezi Noktaları</h3>
+      <h3 class="text-2xl font-bold text-center text-green-800 mb-8">Öne Çıkan Lokasyonlar</h3>
       <div class="grid md:grid-cols-3 gap-8">
-        <!-- Card 1 -->
         <div class="shadow-lg rounded-xl overflow-hidden">
           <img src="https://source.unsplash.com/400x300/?cappadocia,turkey" alt="Kapadokya" class="w-full h-48 object-cover">
           <div class="p-4">
             <h4 class="text-lg font-semibold">Kapadokya</h4>
-            <p class="text-sm text-gray-600">Büyüleyici peri bacaları ve balon manzarası ile ünlü tarihi bir bölge.</p>
+            <p class="text-sm text-gray-600">Peri bacaları ve gün doğumu manzaralarıyla efsanevi bir rota.</p>
           </div>
         </div>
-        <!-- Card 2 -->
         <div class="shadow-lg rounded-xl overflow-hidden">
-          <img src="https://source.unsplash.com/400x300/?efes,ruins" alt="Efes Antik Kenti" class="w-full h-48 object-cover">
+          <img src="https://source.unsplash.com/400x300/?istanbul,architecture" alt="İstanbul" class="w-full h-48 object-cover">
           <div class="p-4">
-            <h4 class="text-lg font-semibold">Efes Antik Kenti</h4>
-            <p class="text-sm text-gray-600">Roma döneminden kalan ve çok iyi korunmuş tarihi bir şehir.</p>
+            <h4 class="text-lg font-semibold">İstanbul</h4>
+            <p class="text-sm text-gray-600">Tarih ve modernizmin buluştuğu, kültürlerin kesişim noktası.</p>
           </div>
         </div>
-        <!-- Card 3 -->
         <div class="shadow-lg rounded-xl overflow-hidden">
-          <img src="https://source.unsplash.com/400x300/?istanbul,hagia sophia" alt="Ayasofya" class="w-full h-48 object-cover">
+          <img src="https://source.unsplash.com/400x300/?rome,ruins" alt="Roma" class="w-full h-48 object-cover">
           <div class="p-4">
-            <h4 class="text-lg font-semibold">Ayasofya</h4>
-            <p class="text-sm text-gray-600">Tarihi İstanbul’un kalbinde, Bizans ve Osmanlı izlerini taşıyan muhteşem yapı.</p>
+            <h4 class="text-lg font-semibold">Roma</h4>
+            <p class="text-sm text-gray-600">Antik dünyanın kalbi, sinematik kareler için vazgeçilmez bir şehir.</p>
           </div>
         </div>
       </div>
@@ -73,15 +70,15 @@
   <!-- Contact -->
   <section id="contact" class="bg-gray-100 py-16 px-4">
     <div class="max-w-4xl mx-auto text-center">
-      <h3 class="text-2xl font-bold text-green-800 mb-4">Bize Ulaşın</h3>
-      <p class="text-gray-600 mb-6">Projemize katılmak ya da iş birliği teklif etmek isterseniz bizimle iletişime geçin.</p>
-      <a href="mailto:info@travelerrasist.com" class="bg-green-700 hover:bg-green-800 text-white px-6 py-2 rounded-full">Mail Gönder</a>
+      <h3 class="text-2xl font-bold text-green-800 mb-4">İletişime Geç</h3>
+      <p class="text-gray-600 mb-6">Ekibimize katılmak, sponsorluk ya da iş birliği için bize yazın.</p>
+      <a href="mailto:info@travelerassist.com" class="bg-green-700 hover:bg-green-800 text-white px-6 py-2 rounded-full">Mail Gönder</a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="bg-green-900 text-white text-center py-4">
-    <p class="text-sm">&copy; 2025 travelerrasist | Tüm hakları saklıdır.</p>
+    <p class="text-sm">&copy; 2025 TravelerAssist | Tüm hakları saklıdır.</p>
   </footer>
 
 </body>
