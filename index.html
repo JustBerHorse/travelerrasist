@@ -1,88 +1,196 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>travelerrasist</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TravelerAssist</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config = { darkMode: 'class' }</script>
+<style>#map { height: 400px; width: 100%; }</style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
 
-  <!-- Navbar -->
-  <nav class="bg-green-900 text-white p-4 shadow">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold">travelerrasist</h1>
-      <ul class="flex space-x-6 text-sm md:text-base">
-        <li><a href="#about" class="hover:text-green-300">Hakkımızda</a></li>
-        <li><a href="#places" class="hover:text-green-300">Keşfet</a></li>
-        <li><a href="#contact" class="hover:text-green-300">İletişim</a></li>
+<nav class="bg-green-900 text-white p-4 dark:bg-green-800">
+  <div class="max-w-6xl mx-auto flex flex-wrap md:flex-nowrap justify-between items-center gap-4">
+    <h1 class="text-2xl font-bold flex-shrink-0">TravelerAssist</h1>
+
+    <form id="searchForm" class="flex flex-grow max-w-md">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Bir yer, kültür, otel ara..."
+        class="w-full px-3 py-1 rounded-l-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-600 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+      />
+      <button type="submit" class="bg-green-700 hover:bg-green-800 px-4 rounded-r-md text-white font-semibold">
+        Ara
+      </button>
+    </form>
+
+    <div class="flex items-center space-x-4 flex-shrink-0">
+      <ul class="hidden md:flex space-x-4 text-sm">
+        <li><a href="#culture" class="hover:underline">Kültür</a></li>
+        <li><a href="#gallery" class="hover:underline">Galeri</a></li>
+        <li><a href="#hotels" class="hover:underline">Oteller</a></li>
+        <li><a href="#car-rental" class="hover:underline">Araçlar</a></li>
+        <li><a href="#map" class="hover:underline">Harita</a></li>
       </ul>
+      <button id="toggleDark" class="ml-4 px-3 py-1 rounded text-sm bg-gray-300 text-gray-800 dark:bg-gray-700 dark:text-white hover:bg-gray-400 dark:hover:bg-gray-600 transition">
+        🌙 Karanlık
+      </button>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- Hero -->
-  <header class="bg-cover bg-center h-[80vh] flex items-center justify-center text-white" style="background-image: url('https://source.unsplash.com/1600x900/?travel,historical');">
-    <div class="bg-black bg-opacity-50 p-8 rounded-xl text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4">Tarihi Yerleri Yeniden Keşfet</h2>
-      <p class="text-lg md:text-xl mb-6">Dünyanın dört bir yanından kültürel, mimari ve tarihi güzellikleri keşfet.</p>
-      <a href="#places" class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-full font-semibold">Hemen Başla</a>
+<header class="bg-cover bg-center h-64 flex items-center justify-center text-white" style="background-image: url('https://source.unsplash.com/1600x400/?culture,travel');">
+  <div class="bg-black bg-opacity-50 p-6 rounded-xl text-center">
+    <h2 class="text-3xl font-bold mb-2">Dünyayı Kültürle Keşfet</h2>
+    <p class="text-lg">Tarihi yapılar, oteller, haritalar ve daha fazlası burada.</p>
+  </div>
+</header>
+
+<section id="culture" class="p-6 max-w-6xl mx-auto">
+  <h3 class="text-2xl font-bold text-green-800 dark:text-green-400 mb-4">Kültürel Alanlar</h3>
+  <div class="grid md:grid-cols-3 gap-6" id="culture-list">
+    <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+      <h4 class="font-bold text-xl mb-2">Ayasofya</h4>
+      <p class="text-sm">Bizans ve Osmanlı mimarisinin eşsiz birleşimi. 6. yüzyılda inşa edildi.</p>
+      <a href="https://tr.wikipedia.org/wiki/Ayasofya" target="_blank" class="text-green-600 dark:text-green-300 underline text-sm">Wikipedia</a>
     </div>
-  </header>
+    <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+      <h4 class="font-bold text-xl mb-2">Kolezyum</h4>
+      <p class="text-sm">Antik Roma’nın en ikonik yapısı. MÖ 80 yılında açıldı.</p>
+      <a href="https://tr.wikipedia.org/wiki/Kolezyum" target="_blank" class="text-green-600 dark:text-green-300 underline text-sm">Wikipedia</a>
+    </div>
+    <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+      <h4 class="font-bold text-xl mb-2">Petra Antik Kenti</h4>
+      <p class="text-sm">Ürdün'de kayalara oyulmuş eşsiz bir şehir. UNESCO mirasıdır.</p>
+      <a href="https://tr.wikipedia.org/wiki/Petra" target="_blank" class="text-green-600 dark:text-green-300 underline text-sm">Wikipedia</a>
+    </div>
+  </div>
+</section>
 
-  <!-- About Section -->
-  <section id="about" class="max-w-4xl mx-auto px-4 py-16">
-    <h3 class="text-2xl font-bold mb-4 text-center text-green-800">Biz Kimiz?</h3>
-    <p class="text-center text-gray-700">
-      travelerrasist, tarihi ve kültürel yerleri ziyaret edip bunları sinematik bir dille paylaşan bağımsız bir gezgin topluluğudur. Sosyal medyada sponsorluklar aracılığıyla daha fazla yer görmeyi hedefliyoruz.
-    </p>
-  </section>
+<section id="gallery" class="p-6 bg-white dark:bg-gray-800">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-2xl font-bold text-green-800 dark:text-green-400 mb-4">Galeri</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <img src="https://source.unsplash.com/400x300/?istanbul,mosque" alt="Ayasofya" class="rounded shadow" />
+      <img src="https://source.unsplash.com/400x300/?colosseum,rome" alt="Kolezyum" class="rounded shadow" />
+      <img src="https://source.unsplash.com/400x300/?petra,jordan" alt="Petra" class="rounded shadow" />
+      <img src="https://source.unsplash.com/400x300/?travel,world" alt="Genel" class="rounded shadow" />
+    </div>
+  </div>
+</section>
 
-  <!-- Discover Places -->
-  <section id="places" class="bg-white py-16 px-4">
-    <div class="max-w-6xl mx-auto">
-      <h3 class="text-2xl font-bold text-center text-green-800 mb-8">Popüler Gezi Noktaları</h3>
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Card 1 -->
-        <div class="shadow-lg rounded-xl overflow-hidden">
-          <img src="https://source.unsplash.com/400x300/?cappadocia,turkey" alt="Kapadokya" class="w-full h-48 object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-semibold">Kapadokya</h4>
-            <p class="text-sm text-gray-600">Büyüleyici peri bacaları ve balon manzarası ile ünlü tarihi bir bölge.</p>
-          </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="shadow-lg rounded-xl overflow-hidden">
-          <img src="https://source.unsplash.com/400x300/?efes,ruins" alt="Efes Antik Kenti" class="w-full h-48 object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-semibold">Efes Antik Kenti</h4>
-            <p class="text-sm text-gray-600">Roma döneminden kalan ve çok iyi korunmuş tarihi bir şehir.</p>
-          </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="shadow-lg rounded-xl overflow-hidden">
-          <img src="https://source.unsplash.com/400x300/?istanbul,hagia sophia" alt="Ayasofya" class="w-full h-48 object-cover">
-          <div class="p-4">
-            <h4 class="text-lg font-semibold">Ayasofya</h4>
-            <p class="text-sm text-gray-600">Tarihi İstanbul’un kalbinde, Bizans ve Osmanlı izlerini taşıyan muhteşem yapı.</p>
-          </div>
-        </div>
+<section id="hotels" class="p-6 bg-gray-100 dark:bg-gray-900">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-2xl font-bold text-green-800 dark:text-green-400 mb-4">Oteller & Rezervasyon</h3>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <h4 class="font-bold text-xl mb-2">Sultanahmet Palace Hotel</h4>
+        <p class="text-sm">Ayasofya’ya 2 dk yürüme mesafesinde. Mükemmel manzara.</p>
+        <a href="#" class="text-blue-600 dark:text-blue-300 underline text-sm">Rezervasyon Yap</a>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <h4 class="font-bold text-xl mb-2">Hotel Forum Roma</h4>
+        <p class="text-sm">Kolezyum’a 5 dakika uzaklıkta. Roma’nın kalbinde.</p>
+        <a href="#" class="text-blue-600 dark:text-blue-300 underline text-sm">Rezervasyon Yap</a>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+        <h4 class="font-bold text-xl mb-2">Petra Guest House Hotel</h4>
+        <p class="text-sm">Petra Antik Kenti'nin hemen girişinde yer alır.</p>
+        <a href="#" class="text-blue-600 dark:text-blue-300 underline text-sm">Rezervasyon Yap</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Contact -->
-  <section id="contact" class="bg-gray-100 py-16 px-4">
-    <div class="max-w-4xl mx-auto text-center">
-      <h3 class="text-2xl font-bold text-green-800 mb-4">Bize Ulaşın</h3>
-      <p class="text-gray-600 mb-6">Projemize katılmak ya da iş birliği teklif etmek isterseniz bizimle iletişime geçin.</p>
-      <a href="mailto:info@travelerrasist.com" class="bg-green-700 hover:bg-green-800 text-white px-6 py-2 rounded-full">Mail Gönder</a>
+<section id="car-rental" class="p-6 bg-white dark:bg-gray-800 mt-8">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-2xl font-bold text-green-800 dark:text-green-400 mb-4">Araç Rezervasyonu</h3>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white dark:bg-gray-700 p-4 rounded shadow">
+        <h4 class="font-bold text-xl mb-2">Economy Car</h4>
+        <p class="text-sm">Ekonomik, yakıt tasarruflu, küçük araç.</p>
+        <a href="#" class="text-blue-600 dark:text-blue-300 underline text-sm">Rezervasyon Yap</a>
+      </div>
+      <div class="bg-white dark:bg-gray-700 p-4 rounded shadow">
+        <h4 class="font-bold text-xl mb-2">SUV</h4>
+        <p class="text-sm">Geniş iç hacim, konforlu, aileler için ideal.</p>
+        <a href="#" class="text-blue-600 dark:text-blue-300 underline text-sm">Rezervasyon Yap</a>
+      </div>
+      <div class="bg-white dark:bg-gray-700 p-4 rounded shadow">
+        <h4 class="font-bold text-xl mb-2">Lüks Araç</h4>
+        <p class="text-sm">Premium kalite, rahat sürüş deneyimi.</p>
+        <a href="#" class="text-blue-600 dark:text-blue-300 underline text-sm">Rezervasyon Yap</a>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="bg-green-900 text-white text-center py-4">
-    <p class="text-sm">&copy; 2025 travelerrasist | Tüm hakları saklıdır.</p>
-  </footer>
+<section id="map" class="p-6">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-2xl font-bold text-green-800 dark:text-green-400 mb-4">Harita Üzerinden İncele</h3>
+    <div id="map"></div>
+  </div>
+</section>
 
-</body>
-</html>
+<section class="bg-gray-200 dark:bg-gray-800 p-6 mt-8">
+  <div class="max-w-4xl mx-auto">
+    <h3 class="text-xl font-bold text-green-800 dark:text-green-400 mb-2">Kullanılan Kaynaklar</h3>
+    <ul class="list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
+      <li>Wikipedia (Creative Commons)</li>
+      <li>Google Maps API</li>
+      <li>UNESCO Dünya Mirası Listesi</li>
+      <li>Booking.com (affiliate rezervasyon bağlantıları)</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="bg-green-900 dark:bg-green-800 text-white text-center p-4 mt-8">
+  <p class="text-sm">&copy; 2025 TravelerAssist — Kültürle Keşfet</p>
+</footer>
+
+<script>
+  function initMap() {
+    const locations = [
+      { title: "Ayasofya", position: { lat: 41.0086, lng: 28.9802 } },
+      { title: "Kolezyum", position: { lat: 41.8902, lng: 12.4922 } },
+      { title: "Petra", position: { lat: 30.3285, lng: 35.4444 } }
+    ];
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 2,
+      center: { lat: 20, lng: 0 }
+    });
+    locations.forEach(loc => {
+      new google.maps.Marker({
+        position: loc.position,
+        map: map,
+        title: loc.title
+      });
+    });
+  }
+
+  const toggle = document.getElementById("toggleDark");
+  const body = document.body;
+
+  function updateToggleText(isDark) {
+    toggle.textContent = isDark ? "🌞 Aydınlık" : "🌙 Karanlık";
+  }
+
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    body.classList.add("dark");
+    updateToggleText(true);
+  } else {
+    updateToggleText(false);
+  }
+
+  toggle.addEventListener("click", () => {
+    const isDark = body.classList.toggle("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    updateToggleText(isDark);
+  });
+
+  document.getElementById("searchForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const query = document.getElement
